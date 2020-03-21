@@ -123,3 +123,4 @@ The following functions are available
 | dy         | float  | 35% of the `fontSize`                              | Adjustment applied to the [dy attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. |
 | bgColor    | string | `#ddd`                                             | The background color of the image. Defaults to `#ddd`. |
 | textColor  | string | `rgba(0,0,0,0.5)`                                  | The color of the text. For transparency, use an `rgba` or `hsla` color value. |
+| class      | string |                                                    | If provide, add a `class` attribute to the `svg` element.
