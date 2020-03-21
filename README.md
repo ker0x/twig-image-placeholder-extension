@@ -42,7 +42,7 @@ composer require kerox/twig-image-placeholder-extension
 
 #### Symfony
 
-If you are not using **Symfony Flex**, add the following to your `services.yaml`
+If you don't use **Symfony Flex**, add the following lines to your `services.yaml`
 
 ```yaml
 services:
@@ -55,6 +55,8 @@ services:
 ```
 
 #### Standalone
+
+If you use Twig as standalone, then you need to add the extension manually
 
 ```php
 $extension = new \Kerox\TwigImagePlaceholder\SvgPlaceholderExtension();
@@ -118,6 +120,6 @@ The following functions are available
 | fontFamily | string | `sans-serif`                                       | The font to use for the text. For data URIs, this needs to be a system-installed font. |
 | fontWeight | string | `bold`                                             | |
 | fontSize   | float  | 20% of the shortest image dimension, rounded down. | |
-| dy         | float  | 35% of the `fontSize`                              | Adjustment applied to [the dy attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. |
+| dy         | float  | 35% of the `fontSize`                              | Adjustment applied to the [dy attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. |
 | bgColor    | string | `#ddd`                                             | The background color of the image. Defaults to `#ddd`. |
 | textColor  | string | `rgba(0,0,0,0.5)`                                  | The color of the text. For transparency, use an `rgba` or `hsla` color value. |
