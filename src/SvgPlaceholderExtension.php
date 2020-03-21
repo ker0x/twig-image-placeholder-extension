@@ -56,6 +56,11 @@ final class SvgPlaceholderExtension extends AbstractExtension
         $svgElement->setAttribute('width', (string) $width);
         $svgElement->setAttribute('height', (string) $height);
         $svgElement->setAttribute('viewBox', "0 0 $width $height");
+
+        if (isset($options['class'])) {
+            $svgElement->setAttribute('class', $options['class']);
+        }
+
         $svgElement->appendChild($rectElement);
         $svgElement->appendChild($textElement);
 

@@ -33,9 +33,10 @@ class SvgExtensionTest extends TestCase
             'bgColor' => '#0F1C3F',
             'textColor' => '#7FDBFF',
             'text' => 'foo bar',
+            'class' => 'thumbnail',
         ];
 
-        $this->assertSame('<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" viewBox="0 0 500 250"><rect fill="#0F1C3F" width="500" height="250"></rect><text fill="#7FDBFF" font-family="sans-serif" font-size="50" font-weight="bold" dy="17.5" x="50%" y="50%" text-anchor="middle">foo bar</text></svg>', $this->extension->getSvgPlaceholder(500, 250, $options));
+        $this->assertSame('<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" viewBox="0 0 500 250" class="thumbnail"><rect fill="#0F1C3F" width="500" height="250"></rect><text fill="#7FDBFF" font-family="sans-serif" font-size="50" font-weight="bold" dy="17.5" x="50%" y="50%" text-anchor="middle">foo bar</text></svg>', $this->extension->getSvgPlaceholder(500, 250, $options));
     }
 
     public function testGetSvgPlaceholderUri(): void
