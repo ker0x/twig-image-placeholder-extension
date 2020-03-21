@@ -1,38 +1,43 @@
 {
-    "name": "kerox/twig-image-placeholder-extension",
-    "type": "library",
-    "description": "A Twig extension to generate images placeholder",
-    "keywords": [
-        "twig",
-        "image",
-        "placeholder",
-        "extension"
-    ],
-    "homepage": "https://github.com/ker0x/twig-image-placeholder-extension",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Romain Monteil",
-            "email": "monteil.romain@gmail.com",
-            "homepage": "https://kerox.fr",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": "^7.2",
-        "twig/twig": "^2.4 || ^3.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Kerox\\TwigImagePlaceholder\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4" : {
-            "Kerox\\TwigImagePlaceholder\\Tests\\" : "tests/"
-        }
+  "name": "kerox/twig-image-placeholder-extension",
+  "type": "library",
+  "description": "A Twig extension to generate images placeholder",
+  "keywords": [
+    "twig",
+    "image",
+    "placeholder",
+    "extension"
+  ],
+  "homepage": "https://github.com/ker0x/twig-image-placeholder-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Romain Monteil",
+      "email": "monteil.romain@gmail.com",
+      "homepage": "https://kerox.fr",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": "^7.2",
+    "ext-dom": "*",
+    "twig/twig": "^2.4 || ^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kerox\\TwigImagePlaceholder\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kerox\\TwigImagePlaceholder\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
 }

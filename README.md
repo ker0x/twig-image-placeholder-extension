@@ -95,8 +95,8 @@ The following functions are available
 
 ```twig
 {{ svg_placeholder(300, 150, {
-    bgColor: '#0F1C3F' , 
-    textColor: '#7FDBFF'
+    bgColor: '#0f1c3f' , 
+    textColor: '#7fdbff'
 }) }}
 ```
 
@@ -112,12 +112,12 @@ The following functions are available
 
 ## Options Reference
 
-| Option     | Type   | Description |
-| ---------- | ------ | ----------- |
-| text       | string | The text to display. Defaults to the image dimensions. |
-| fontFamily | string | The font to use for the text. For data URIs, this needs to be a system-installed font. Defaults to `'sans-serif'`. |
-| fontWeight | string | Defaults to `'bold'`. |
-| fontSize   | float  | Defaults to 20% of the shortest image dimension, rounded down.
-| dy         | float  | Adjustment applied to [the `dy` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. Defaults to 35% of the `fontSize`. |
-| bgColor    | string | The background color of the image. Defaults to `#ddd`. |
-| textColor  | string | The color of the text. For transparency, use an `rgba` or `hsla` color value. Defaults to `rgba(0,0,0,0.5)`. |
+| Option     | Type   | Default                                            | Description |
+| ---------- | ------ | -------------------------------------------------- | ----------- |
+| text       | string | Image dimensions                                   | The text to display. |
+| fontFamily | string | `sans-serif`                                       | The font to use for the text. For data URIs, this needs to be a system-installed font. |
+| fontWeight | string | `bold`                                             | |
+| fontSize   | float  | 20% of the shortest image dimension, rounded down. | |
+| dy         | float  | 35% of the `fontSize`                              | Adjustment applied to [the dy attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. |
+| bgColor    | string | `#ddd`                                             | The background color of the image. Defaults to `#ddd`. |
+| textColor  | string | `rgba(0,0,0,0.5)`                                  | The color of the text. For transparency, use an `rgba` or `hsla` color value. |
