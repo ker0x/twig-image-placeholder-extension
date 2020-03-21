@@ -26,6 +26,8 @@
 
 A Twig extension to generate images placeholder
 
+> Inspired by [simple-svg-placeholder](https://github.com/cloudfour/simple-svg-placeholder)
+
 ## Installation
 
 You can install the extension using Composer:
@@ -33,6 +35,26 @@ You can install the extension using Composer:
 ```
 composer require kerox/twig-image-placeholder-extension
 ```
+
+#### Flex
+
+*TODO*
+
+#### Symfony
+
+If you are not using **Symfony Flex**, add the following to your `services.yaml`
+
+```yaml
+services:
+  _defaults:
+    public: false
+    autowire: true
+    autoconfigure: true
+
+  Kerox\TwigImagePlaceholder\SvgExtension: null
+```
+
+#### Standalone
 
 ```php
 $extension = new \Kerox\TwigImagePlaceholder\SvgPlaceholderExtension();
@@ -45,8 +67,9 @@ $twig->addExtension($extension);
 
 The following functions are available
 
-* svg_placeholder()
-* svg_placeholder_uri()
+* [SvgExtension](./src/SvgPlaceholderExtension.php)
+    * svg_placeholder()
+    * svg_placeholder_uri()
 
 ## Examples
 
@@ -66,9 +89,9 @@ The following functions are available
 {{ svg_placeholder(150, 150) }}
 ```
 
-#### Color
+#### Colors
 
-![](./examples/color.svg?sanitize=true)
+![](./examples/colors.svg?sanitize=true)
 
 ```twig
 {{ svg_placeholder(300, 150, {
@@ -87,14 +110,14 @@ The following functions are available
 }) }}
 ```
 
-## Options
+## Options Reference
 
-* fontFamily
-* fontWeight
-* fontSize
-* bgColor
-* text
-* textColor
-* dy
-
-Inspired by [simple-svg-extension](https://github.com/cloudfour/simple-svg-placeholder)
+| Option     | Type   | Description |
+| ---------- | ------ | ----------- |
+| text       | string | The text to display. Defaults to the image dimensions. |
+| fontFamily | string | The font to use for the text. For data URIs, this needs to be a system-installed font. Defaults to `'sans-serif'`. |
+| fontWeight | string | Defaults to `'bold'`. |
+| fontSize   | float  | Defaults to 20% of the shortest image dimension, rounded down.
+| dy         | float  | Adjustment applied to [the `dy` attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. Defaults to 35% of the `fontSize`. |
+| bgColor    | string | The background color of the image. Defaults to `#ddd`. |
+| textColor  | string | The color of the text. For transparency, use an `rgba` or `hsla` color value. Defaults to `rgba(0,0,0,0.5)`. |
