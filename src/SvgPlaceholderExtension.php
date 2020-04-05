@@ -35,22 +35,7 @@ final class SvgPlaceholderExtension extends AbstractExtension
 
         $doc = new \DOMDocument('1.0');
 
-        $rectElement = $doc->createElement('rect');
-        $rectElement->setAttribute('fill', $options['bgColor']);
-        $rectElement->setAttribute('width', (string) $width);
-        $rectElement->setAttribute('height', (string) $height);
-
-        $textElement = $doc->createElement('text');
-        $textElement->setAttribute('fill', $options['textColor']);
-        $textElement->setAttribute('font-family', $options['fontFamily']);
-        $textElement->setAttribute('font-size', (string) $options['fontSize']);
-        $textElement->setAttribute('font-weight', (string)$options['fontWeight']);
-        $textElement->setAttribute('dy', (string) $options['dy']);
-        $textElement->setAttribute('x', '50%');
-        $textElement->setAttribute('y', '50%');
-        $textElement->setAttribute('text-anchor', 'middle');
-        $textElement->appendChild($doc->createTextNode($options['text']));
-
+        // svg element
         $svgElement = $doc->createElement('svg');
         $svgElement->setAttribute('xmlns', 'http://www.w3.org/2000/svg');
         $svgElement->setAttribute('width', (string) $width);
@@ -60,8 +45,29 @@ final class SvgPlaceholderExtension extends AbstractExtension
             $svgElement->setAttribute('class', $class);
         }
 
+        // rect element
+        $rectElement = $doc->createElement('rect');
+        $rectElement->setAttribute('fill', $options['bgColor']);
+        $rectElement->setAttribute('width', (string) $width);
+        $rectElement->setAttribute('height', (string) $height);
+
         $svgElement->appendChild($rectElement);
-        $svgElement->appendChild($textElement);
+
+        // text element
+        if ($text = $options['text'] ?? null) {
+            $textElement = $doc->createElement('text');
+            $textElement->setAttribute('fill', $options['textColor']);
+            $textElement->setAttribute('font-family', $options['fontFamily']);
+            $textElement->setAttribute('font-size', (string) $options['fontSize']);
+            $textElement->setAttribute('font-weight', (string) $options['fontWeight']);
+            $textElement->setAttribute('dy', (string) $options['dy']);
+            $textElement->setAttribute('x', '50%');
+            $textElement->setAttribute('y', '50%');
+            $textElement->setAttribute('text-anchor', 'middle');
+            $textElement->appendChild($doc->createTextNode($text));
+
+            $svgElement->appendChild($textElement);
+        }
 
         $doc->appendChild($svgElement);
 
