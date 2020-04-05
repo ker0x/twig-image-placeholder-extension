@@ -36,22 +36,17 @@ You can install the extension using Composer:
 composer require kerox/twig-image-placeholder-extension
 ```
 
-#### Flex
-
-*TODO*
-
 #### Symfony
 
-If you don't use **Symfony Flex**, add the following lines to your `services.yaml`
+If you are using [Symfony Flex](https://flex.symfony.com/) you're done.
+
+Otherwise, add the following lines to your `services.yaml`
 
 ```yaml
 services:
-  _defaults:
-    public: false
-    autowire: true
-    autoconfigure: true
+  ...
 
-  Kerox\TwigImagePlaceholder\SvgExtension: null
+  Kerox\TwigImagePlaceholder\SvgExtension: ~
 ```
 
 #### Standalone
@@ -112,6 +107,16 @@ The following functions are available
 }) }}
 ```
 
+Or Without:
+
+![](./examples/notext.svg?sanitize=true)
+
+```twig
+{{ svg_placeholder(300, 150, {
+   text: false
+}) }}
+```
+
 #### Data URI
 
 ```twig
@@ -126,13 +131,13 @@ will output
 
 ## Options Reference
 
-| Option     | Type   | Default                                            | Description |
-| ---------- | ------ | -------------------------------------------------- | ----------- |
-| text       | string | Image dimensions                                   | The text to display. |
-| fontFamily | string | `sans-serif`                                       | The font to use for the text. For data URIs, this needs to be a system-installed font. |
-| fontWeight | string | `bold`                                             | |
-| fontSize   | float  | 20% of the shortest image dimension, rounded down. | |
-| dy         | float  | 35% of the `fontSize`                              | Adjustment applied to the [dy attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. |
-| bgColor    | string | `#ddd`                                             | The background color of the image. Defaults to `#ddd`. |
-| textColor  | string | `rgba(0,0,0,0.5)`                                  | The color of the text. For transparency, use an `rgba` or `hsla` color value. |
-| class      | string |                                                    | If provide, add a `class` attribute to the `svg` element.
+| Option     | Type                    | Default                                            | Description |
+| ---------- | ----------------------- | -------------------------------------------------- | ----------- |
+| text       | `string`,`null`,`false` | Placeholder dimensions                             | The text to display. If set to `false`, element `text` will not be added to the svg.  |
+| fontFamily | `string`                | `sans-serif`                                       | The font to use for the text. For data URIs, this needs to be a system-installed font. |
+| fontWeight | `string`                | `bold`                                             | |
+| fontSize   | `float`                 | 20% of the shortest image dimension, rounded down. | |
+| dy         | `float`                 | 35% of the `fontSize`                              | Adjustment applied to the [dy attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dy) of the text element so it will appear vertically centered. |
+| bgColor    | `string`                | `#ddd`                                             | The background color of the image. Defaults to `#ddd`. |
+| textColor  | `string`                | `rgba(0,0,0,0.5)`                                  | The color of the text. For transparency, use an `rgba` or `hsla` color value. |
+| class      | `string`                |                                                    | If provide, add a `class` attribute to the `svg` element.

@@ -8,3 +8,4 @@ The Twig Image Placeholder Extension library follows [SemVer](http://semver.org/
 
 - 1.0.1 (2020-03)
     - Add option `class`
+    - Option `text` can be set to `false` or `null`
