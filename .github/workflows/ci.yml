@@ -11,14 +11,25 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    continue-on-error: ${{ matrix.allow-failure }}
+
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.2', '7.3', '7.4']
-        coverage: [false]
+        php-versions: [ '7.2', '7.3', '7.4' ]
+        coverage: [ false ]
+        allow-failure: [ false ]
+        composer-flags: [ '' ]
         include:
           - php-versions: '7.2'
             coverage: true
+            allow-failure: false
+            composer-flags: ''
+
+          - php-versions: '8.0'
+            coverage: false
+            allow-failure: true
+            composer-flags: '--ignore-platform-req php'
 
     steps:
       - uses: actions/checkout@v2
@@ -42,10 +53,12 @@ jobs:
 
       - name: composer-install
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --prefer-dist --no-progress --no-suggest ${{ matrix.composer-flags }}
 
       - name: php-cs-fixer
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose --config=.php_cs.dist
+        env:
+          PHP_CS_FIXER_IGNORE_ENV: ${{ matrix.allow-failure }}
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
 
       - name: phpunit
         run: vendor/bin/phpunit --coverage-text --coverage-clover=build/coverage.xml
