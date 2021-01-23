@@ -1,10 +1,9 @@
 <div align="center">
-    <img src="https://img.shields.io/github/workflow/status/ker0x/twig-image-placeholder-extension/ci?style=for-the-badge" alt="GitHub Workflow Status">
-    <a href="https://scrutinizer-ci.com/g/ker0x/twig-image-placeholder-extension/" title="Coverage">
-        <img src="https://img.shields.io/scrutinizer/coverage/g/ker0x/twig-image-placeholder-extension.svg?style=for-the-badge" alt="Coverage">
+    <a href="https://github.com/ker0x/twig-image-placeholder-extension/actions" title="Build">
+        <img src="https://img.shields.io/github/workflow/status/ker0x/twig-image-placeholder-extension/ci?style=for-the-badge" alt="Build">
     </a>
-    <a href="https://scrutinizer-ci.com/g/ker0x/twig-image-placeholder-extension/" title="Code Quality">
-        <img src="https://img.shields.io/scrutinizer/g/ker0x/twig-image-placeholder-extension.svg?style=for-the-badge" alt="Code Quality">
+    <a href="https://codecov.io/gh/ker0x/twig-image-placeholder-extension/" title="Coverage">
+        <img src="https://img.shields.io/codecov/c/gh/ker0x/twig-image-placeholder-extension?style=for-the-badge" alt="Coverage">
     </a>
     <a href="https://php.net" title="PHP Version">
         <img src="https://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg?style=for-the-badge" alt="PHP Version">
