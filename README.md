@@ -43,7 +43,7 @@ Otherwise, add the following lines to your `services.yaml`
 services:
   ...
 
-  Kerox\TwigImagePlaceholder\SvgExtension: ~
+  Kerox\TwigImagePlaceholder\SvgPlaceholderExtension: null
 ```
 
 #### Standalone
