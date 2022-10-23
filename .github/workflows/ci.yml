@@ -14,19 +14,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ '7.3', '7.4', '8.0' ]
+        php-versions: [ '8.1', '8.2' ]
         allow-failure: [ false ]
         coverage: [ false ]
         composer-flags: [ '' ]
         include:
-          - php-versions: '7.2'
-            coverage: true
           - php-versions: '8.1'
+            coverage: true
+          - php-versions: '8.2'
             allow-failure: true
             composer-flags: '--ignore-platform-req php'
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: php-setup
         uses: shivammathur/setup-php@v2
@@ -38,7 +38,7 @@ jobs:
 
       - name: composer-cache
         id: composer-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: vendor
           key: ${{ runner.os }}-${{ matrix.php-versions }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -53,7 +53,7 @@ jobs:
         continue-on-error: ${{ matrix.allow-failure }}
         env:
           PHP_CS_FIXER_IGNORE_ENV: ${{ matrix.allow-failure }}
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose --config=.php_cs.dist
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
 
       - name: phpunit
         run: vendor/bin/phpunit --coverage-text --coverage-clover=build/coverage.xml
