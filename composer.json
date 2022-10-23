@@ -43,6 +43,6 @@
   },
   "scripts": {
     "php-cs-fixer": "vendor/bin/php-cs-fixer fix --diff --verbose",
-    "phpunit": "vendor/bin/phpunit --testdox"
+    "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit --testdox"
   }
 }

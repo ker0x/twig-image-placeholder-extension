@@ -2,6 +2,15 @@
 
 The Twig Image Placeholder Extension library follows [SemVer](http://semver.org/).
 
+## 2.x
+
+**Changelog** (since [`1.1.2`](https://github.com/ker0x/twig-image-placeholder-extension/compare/1.1.2...2.0.0))
+
+- 2.0.0 (2022-10)
+    - Drop support for PHP < 8.1
+    - Drop support for Twig < 3.0
+    - Update dependencies
+
 ## 1.x
 
 **Changelog** (since [`1.1.1`](https://github.com/ker0x/twig-image-placeholder-extension/compare/1.1.1...1.1.2))
