@@ -8,13 +8,9 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
-
-    <logging>
-        <log type="coverage-clover" target="build/coverage.xml"/>
-    </logging>
+    <coverage>
+        <report>
+            <clover outputFile="build/coverage.xml"/>
+        </report>
+    </coverage>
 </phpunit>

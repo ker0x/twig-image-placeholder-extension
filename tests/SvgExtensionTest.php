@@ -10,7 +10,7 @@ use Twig\TwigFunction;
 
 class SvgExtensionTest extends TestCase
 {
-    protected $extension;
+    protected SvgPlaceholderExtension $extension;
 
     protected function setUp(): void
     {

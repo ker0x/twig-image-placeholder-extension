@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/codecov/c/gh/ker0x/twig-image-placeholder-extension?style=for-the-badge" alt="Coverage">
     </a>
     <a href="https://php.net" title="PHP Version">
-        <img src="https://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg?style=for-the-badge" alt="PHP Version">
+        <img src="https://img.shields.io/badge/php-%3E%3D%208.1-8892BF.svg?style=for-the-badge" alt="PHP Version">
     </a>
     <a href="https://packagist.org/packages/kerox/twig-image-placeholder-extension" title="Downloads">
         <img src="https://img.shields.io/packagist/dt/kerox/twig-image-placeholder-extension.svg?style=for-the-badge" alt="Downloads">
