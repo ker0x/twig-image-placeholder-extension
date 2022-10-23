@@ -32,6 +32,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
+          coverage: xdebug
 
       - name: composer-validate
         run: composer validate
@@ -56,7 +57,7 @@ jobs:
         run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
 
       - name: phpunit
-        run: vendor/bin/phpunit --coverage-text --coverage-clover=build/coverage.xml
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit
 
       - name: coverage
         if: ${{ matrix.coverage }}
